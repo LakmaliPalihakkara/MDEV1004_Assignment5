@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -13,4 +13,269 @@
     <input type="submit" value="Buy Book">
   </form>
 </body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=USD"
+    data-sdk-integration-source="button-factory"></script>
+</head>
+
+<body>
+  <div class="top-title">
+    <h1 id="title">Book Store</h1>
+  </div>
+  <h2>Book Sale!!!</h2>
+
+  <div class="grid-container">
+    <div class="grid-item">
+      <img id="img1" class="img" src="./images/book1.jpg" alt="Squirtle image" />
+
+      <div class="price">
+        <s>
+          <p>$15.74</p>
+        </s>
+        <p>$14.24</p>
+      </div>
+    </div>
+
+    <div class="grid-item">
+      <img id="img2" class="img" src="./images/book2.jpg" alt="Wortortle image" />
+
+      <div class="price">
+        <s>
+          <p>$33.95</p>
+        </s>
+        <p>$31.15</p>
+      </div>
+    </div>
+
+    <div class="grid-item">
+      <img id="img3" class="img" src="./images/book3.jpg" alt="charmander image" />
+
+      <div class="price">
+        <s>
+          <p>$25.00</p>
+        </s>
+        <p>$24.25</p>
+      </div>
+    </div>
+
+    <div class="grid-item">
+      <img id="img4" class="img" src="./images/book4.jpg" alt="Rattata image" />
+
+      <div class="price">
+        <s>
+          <p>$22.99</p>
+        </s>
+        <p>$21.10</p>
+      </div>
+    </div>
+
+    <div class="grid-item">
+      <img id="img5" class="img" src="./images/book5.jpg" alt="weedle image" />
+
+      <div class="price">
+        <s>
+          <p>$43.50</p>
+        </s>
+        <p>$40.75</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-container">
+    <div onclick="showHidePanel('img1')" class="grid-item">
+
+
+      <div class="name">
+        <p>Order Now</p>
+      </div>
+    </div>
+
+    <div onclick="showHidePanel('img2')" class="grid-item">
+
+      <div class="name">
+        <p>Order Now</p>
+      </div>
+    </div>
+
+    <div onclick="showHidePanel('img3')" class="grid-item">
+
+
+      <div class="name">
+        <p>Order Now</p>
+      </div>
+    </div>
+
+    <div onclick="showHidePanel('img4')" class="grid-item">
+
+      <div class="name">
+        <p>Order Now</p>
+      </div>
+    </div>
+
+    <div onclick="showHidePanel('img5')" class="grid-item">
+
+      <div class="name">
+        <p>Order Now</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="info-panel">
+    <div class="specs-abilities-container">
+      <div id="specs" class="data-container">
+        <div class="raw-container">
+          <div class="grid-item">
+            <p>Pay Now</p>
+
+            <div id="smart-button-container">
+              <div style="text-align: center;">
+                <div id="paypal-button-container"></div>
+              </div>
+            </div>
+
+
+
+          </div>
+
+          <div class="grid-item">
+          
+
+            <div id="smart-button-container">
+              <div style="text-align: center;">
+                <div id="paypal-button-container"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+  <script>
+    function showHidePanel(id) {
+      let window = document.getElementById("specs");
+      let windowAbility = document.getElementById("ability");
+      let titleSpecs = document.getElementById("title-specs");
+      let titleAbility = document.getElementById("title-ability");
+
+      if (window.style.display == "block") {
+        window.style.display = "none";
+        windowAbility.style.display = "none";
+        titleSpecs.style.display = "none";
+        titleAbility.style.display = "none";
+
+        document.getElementById("img1").style.border = "none";
+        document.getElementById("img2").style.border = "none";
+        document.getElementById("img3").style.border = "none";
+        document.getElementById("img4").style.border = "none";
+        document.getElementById("img5").style.border = "none";
+
+        onClick = false;
+      } else {
+        window.style.display = "block";
+        titleSpecs.style.display = "block";
+
+        if (id == "img1") {
+          document.getElementById("img1").style.border =
+            "thick solid #66a0b3";
+          document.getElementById("img2").style.border = "none";
+          document.getElementById("img3").style.border = "none";
+          document.getElementById("img4").style.border = "none";
+          document.getElementById("img5").style.border = "none";
+          populateSpecifications("squirtle", "name-squirtle");
+        } else if (id == "img2") {
+          document.getElementById("img1").style.border = "none";
+          document.getElementById("img2").style.border =
+            "thick solid #aebddb";
+          document.getElementById("img3").style.border = "none";
+          document.getElementById("img4").style.border = "none";
+          document.getElementById("img5").style.border = "none";
+          populateSpecifications("wartortle", "name-wortortle");
+        } else if (id == "img3") {
+          document.getElementById("img1").style.border = "none";
+          document.getElementById("img2").style.border = "none";
+          document.getElementById("img3").style.border =
+            "thick solid #f17a39";
+          document.getElementById("img4").style.border = "none";
+          document.getElementById("img5").style.border = "none";
+
+          populateSpecifications("charmander", "name-charmander");
+        } else if (id == "img4") {
+          document.getElementById("img1").style.border = "none";
+          document.getElementById("img2").style.border = "none";
+          document.getElementById("img3").style.border = "none";
+          document.getElementById("img4").style.border =
+            "thick solid #9e81aa";
+          populateSpecifications("rattata", "name-rattata");
+
+          document.getElementById("img5").style.border = "none";
+        } else if (id == "img5") {
+          document.getElementById("img1").style.border = "none";
+          document.getElementById("img2").style.border = "none";
+          document.getElementById("img3").style.border = "none";
+          document.getElementById("img4").style.border = "none";
+          document.getElementById("img5").style.border =
+            "thick solid #f2c968";
+          populateSpecifications("weedle", "name-weedle");
+        }
+      }
+    }
+
+  
+
+    function initPayPalButton() {
+      paypal.Buttons({
+        style: {
+          shape: 'pill',
+          color: 'gold',
+          layout: 'vertical',
+          label: 'paypal',
+
+        },
+
+        createOrder: function (data, actions) {
+          return actions.order.create({
+            purchase_units: [{ "amount": { "currency_code": "USD", "value": 1 } }]
+          });
+        },
+
+        onApprove: function (data, actions) {
+          return actions.order.capture().then(function (orderData) {
+
+            // Full available details
+            console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+
+            // Show a success message within this page, e.g.
+            const element = document.getElementById('paypal-button-container');
+            element.innerHTML = '';
+            element.innerHTML = '<h3>Thank you for your payment!</h3>';
+
+            // Or go to another URL:  actions.redirect('thank_you.html');
+
+          });
+        },
+
+        onError: function (err) {
+          console.log(err);
+        }
+      }).render('#paypal-button-container');
+    }
+    initPayPalButton();
+  </script>
+
+</body>
+
 </html>

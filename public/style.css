@@ -1,0 +1,96 @@
+.top-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+#title{
+    border-color: black;
+    border-width: 2px;
+    border-style: inset;
+    width: 15%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    display: inline-block;
+}
+
+h2{
+  text-align: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    padding: 10px;
+  }
+
+.img{
+    width: 200px;
+    height: 250px;
+  }
+
+.name{
+    border-color: black;
+    border-width: 2px;
+    border-style: inset;
+    width: 40%;
+    text-align: center;
+    margin-left: 45px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    background-color: rgb(240, 248, 207);
+}
+
+.price{
+  width: 40%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+  margin-left: 45px;
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+
+
+#smart-button-container
+{
+  padding: 20px;
+}
+
+.data-container{
+    border-color: black;
+    border-width: 2px;
+    border-style: inset;
+    width: 30%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    margin-left: 45px;
+    vertical-align:top;
+    margin-left: auto;
+    margin-right: auto;
+    display: none;
+}
+
+#specs{
+    display: none;
+    
+}
+
+#ability{
+  display: none;
+  
+}
+
+#title-specs{
+  display: none;
+  
+}
+
+#title-ability{
+display: none;
+
+}
+

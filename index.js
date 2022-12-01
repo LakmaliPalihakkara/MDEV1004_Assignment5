@@ -1,5 +1,7 @@
 const express = require("express");
 const paypal = require("paypal-rest-sdk");
+const app = express();
+app.use(express.static('public'));
 
 paypal.configure({
   mode: "sandbox", //sandbox or live
@@ -11,7 +13,6 @@ paypal.configure({
 
 const PORT = process.env.PORT || 3000;
 
-const app = express();
 
 app.get("/", (req, res) => res.sendFile(__dirname + "/index.html"));
 
