@@ -1,6 +1,7 @@
 const express = require("express");
 const paypal = require("paypal-rest-sdk");
 const paypalcheckout = require("@paypal/checkout-server-sdk");
+const { response } = require("express");
 const app = express();
 app.use(express.static("public"));
 
@@ -21,8 +22,8 @@ app.post("/paycheck", (req, res) => {
 
   // This sample uses SandboxEnvironment. In production, use LiveEnvironment
   let environment = new paypalcheckout.core.SandboxEnvironment(
-    paypal.configure.client_id,
-    paypal.configure.client_secret
+    "AQJ_57csqP9PoJDA1cho0VlXWYjsIkYGVXe0GnAdoSf0Qt8redbghRniRr5vWPfHAG4WcXqB-G-IZJOz",
+    "EEEl6lbiMyeLGXC0v3wwZ6z1cLHk0e45VQOSDSs-gLRzUQxd50Vsd-G63Xe9h1Z7_BjNYKZe2IZrLMWi"
   );
   let client = new paypalcheckout.core.PayPalHttpClient(environment);
 
@@ -47,13 +48,15 @@ app.post("/paycheck", (req, res) => {
   // Call API with your client and get a response for your call
   let createOrder = async function () {
     let response = await client.execute(request);
-    res.redirect("www.sandbox.paypal.com/checkoutnow?token=7MC59059SW679454J");
+    //res.redirect("www.sandbox.paypal.com/checkoutnow?token=7MC59059SW679454J");
     https: console.log(`Response: ${JSON.stringify(response)}`);
     // If call returns body in response, you can get the deserialized version from the result attribute of the response.
     console.log(`Order: ${JSON.stringify(response.result)}`);
   };
-
   createOrder();
+  res.redirect(
+    "https://www.sandbox.paypal.com/checkoutnow?token=5TC617641M705800Y"
+  );
 });
 
 app.get("/success", (req, res) => {
